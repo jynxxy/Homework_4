@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Car {
 
@@ -7,14 +8,14 @@ public class Car {
     boolean isAutomaticGear;
     Market market;
     String segment;
-    ArrayList<Dimension> dimmension;
+    List<Dimensions> dimensions;
 
-    public Car(Producent producent, boolean isAutomaticGear, Market market, String segment, ArrayList<Dimension> dimmension) {
+    public Car(Producent producent, boolean isAutomaticGear, Market market, String segment, List<Dimensions> dimensions) {
         this.producent = producent;
         this.isAutomaticGear = isAutomaticGear;
         this.market = market;
         this.segment = segment;
-        this.dimmension = dimmension;
+        this.dimensions = dimensions;
     }
 
     public static void main(String[] args) {
@@ -31,29 +32,34 @@ public class Car {
         Market English = new Market("English", Arrays.asList(England, USA));
         Market West = new Market("Europe", Arrays.asList(England, France, USA));
 
-        Dimension hatchback = new Dimension(140, 450, 310);
-        Dimension SUV = new Dimension(198, 500,700);
-        Dimension coupe = new Dimension(137, 370, 280);
-        Dimension kabriolet = new Dimension(140, 470, 390);
-        Dimension kombi = new Dimension(145, 450, 1400);
-        Dimension liftback = new Dimension(146, 448, 550);
-        Dimension sedan = new Dimension(150, 465, 600);
-        Dimension minivan = new Dimension(162, 444, 484);
-        Dimension pickup = new Dimension(170, 484, 484);
-        Dimension roadster = new Dimension(112, 394, 86);
+        Dimensions hatchback = new Dimensions(140, 450, 310);
+        Dimensions SUV = new Dimensions(198, 500,700);
+        Dimensions coupe = new Dimensions(137, 370, 280);
+        Dimensions cabriolet = new Dimensions(140, 470, 390);
+        Dimensions combi = new Dimensions(145, 450, 1400);
+        Dimensions liftback = new Dimensions(146, 448, 550);
+        Dimensions sedan = new Dimensions(150, 465, 600);
+        Dimensions minivan = new Dimensions(162, 444, 484);
+        Dimensions pickup = new Dimensions(170, 484, 484);
+        Dimensions roadster = new Dimensions(112, 394, 86);
 
-        Producent producent1 = new Producent("Toyota", "Corolla");
-        Producent producent2 = new Producent("Toyota", "Aygo");
-        Producent producent3 = new Producent("Toyota", "Hilux");
-        Producent producent4 = new Producent("Opel", "Corsa");
-        Producent producent5 = new Producent("Opel", "Astra");
-        Producent producent6 = new Producent("Honda", "Jazz");
-        Producent producent7 = new Producent("Honda", "Civic");
-        Producent producent8 = new Producent("Mercedes", "Vito");
-        Producent producent9 = new Producent("Volkswagen", "Golf");
-        Producent producent10 = new Producent("Volkswagen", "T-Cross");
+        List<Dimensions>  dimensions = new ArrayList<>();
+        dimensions.add(hatchback);
 
-//        Car auto1 = new Car(producent1, false, English, "normal", hatchback);
+        Producent prod1 = new Producent("Toyota", "Corolla");
+        Producent prod2 = new Producent("Toyota", "Aygo");
+        Producent prod3 = new Producent("Toyota", "Hilux");
+        Producent prod4 = new Producent("Opel", "Corsa");
+        Producent prod5 = new Producent("Opel", "Astra");
+        Producent prod6 = new Producent("Honda", "Jazz");
+        Producent prod7 = new Producent("Honda", "Civic");
+        Producent prod8 = new Producent("Mercedes", "Vito");
+        Producent prod9 = new Producent("Volkswagen", "Golf");
+        Producent prod10 = new Producent("Volkswagen", "T-Cross");
+
+//        Car auto1 = new Car(prod1, false, English, "normal", hatchback);
+
+        Car auto2 = new Car(prod2, true, English, "normal", dimensions);
 
 
     }
