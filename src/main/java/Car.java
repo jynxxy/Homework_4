@@ -26,11 +26,11 @@ public class Car {
         Country England = new Country("England", 'E');
         Country France = new Country("France", 'F');
 
-        Market Europe = new Market("Europe", Arrays.asList(England, France));
-        Market America = new Market("America", Arrays.asList(USA));
-        Market Asia = new Market("Asia", Arrays.asList(Japan, Korea));
-        Market English = new Market("English", Arrays.asList(England, USA));
-        Market West = new Market("Europe", Arrays.asList(England, France, USA));
+        Market market1 = new Market("Europe", Arrays.asList(England, France));
+        Market market2 = new Market("America", Arrays.asList(USA));
+        Market market3 = new Market("Asia", Arrays.asList(Japan, Korea));
+        Market market4 = new Market("all", Arrays.asList(England, USA, Japan, Korea, France));
+        Market market5 = new Market("Europe", Arrays.asList(England, France, USA));
 
         Dimensions hatchback = new Dimensions(140, 450, 310);
         Dimensions SUV = new Dimensions(198, 500,700);
@@ -45,6 +45,17 @@ public class Car {
 
         List<Dimensions>  dimensions = new ArrayList<>();
         dimensions.add(hatchback);
+        dimensions.add(SUV);
+        dimensions.add(coupe);
+        dimensions.add(cabriolet);
+        dimensions.add(combi);
+        dimensions.add(liftback);
+        dimensions.add(sedan);
+        dimensions.add(minivan);
+        dimensions.add(pickup);
+        dimensions.add(roadster);
+
+//        System.out.println(dimensions.get(0).trunkCapacity);
 
         Producent prod1 = new Producent("Toyota", "Corolla");
         Producent prod2 = new Producent("Toyota", "Aygo");
@@ -52,15 +63,26 @@ public class Car {
         Producent prod4 = new Producent("Opel", "Corsa");
         Producent prod5 = new Producent("Opel", "Astra");
         Producent prod6 = new Producent("Honda", "Jazz");
-        Producent prod7 = new Producent("Honda", "Civic");
+        Producent prod7 = new Producent("BMW", "X3");
         Producent prod8 = new Producent("Mercedes", "Vito");
-        Producent prod9 = new Producent("Volkswagen", "Golf");
-        Producent prod10 = new Producent("Volkswagen", "T-Cross");
+        Producent prod9 = new Producent("BMW", "X4");
+        Producent prod10 = new Producent("BMW", "X1");
 
-//        Car auto1 = new Car(prod1, false, English, "normal", hatchback);
-
-        Car auto2 = new Car(prod2, true, English, "normal", dimensions);
-
-
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car(prod1, false, market4, "standard", dimensions));
+        cars.add(new Car(prod2, false, market4, "standard", dimensions));
+        cars.add(new Car(prod3, false, market2, "medium", dimensions));
+        cars.add(new Car(prod4, false, market4, "standard", dimensions));
+        cars.add(new Car(prod5, false, market3, "medium", dimensions));
+        cars.add(new Car(prod6, false, market5, "standard", dimensions));
+        cars.add(new Car(prod6, false, market5, "standard", dimensions));
+        cars.add(new Car(prod2, false, market4, "standard", dimensions));
+        cars.add(new Car(prod3, false, market4, "standard", dimensions));
+        cars.add(new Car(prod2, true, market3, "standard", dimensions));
+        cars.add(new Car(prod8, true, market4, "medium", dimensions));
+        cars.add(new Car(prod7, true, market4, "premium", dimensions));
+        cars.add(new Car(prod9, true, market1, "premium", dimensions));
+        cars.add(new Car(prod9, true, market4, "premium", dimensions));
+        cars.add(new Car(prod10, true, market4, "premium", dimensions));
     }
 }

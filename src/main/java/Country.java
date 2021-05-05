@@ -8,5 +8,4 @@ public class Country {
         this.countrySign = countrySign;
     }
 
-
 }
