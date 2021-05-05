@@ -11,4 +11,8 @@ public class Dimensions {
         this.width = width;
         this.trunkCapacity = trunkCapacity;
     }
+
+    public int getTrunkCapacity() {
+        return trunkCapacity;
+    }
 }

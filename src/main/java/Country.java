@@ -7,5 +7,4 @@ public class Country {
         this.countryName = countryName;
         this.countrySign = countrySign;
     }
-
 }

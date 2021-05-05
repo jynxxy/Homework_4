@@ -8,4 +8,11 @@ public class Producent {
         this.type = type;
     }
 
+    @Override
+    public String toString() {
+        return "Producent{" +
+                "model='" + model + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }
