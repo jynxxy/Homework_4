@@ -8,10 +8,10 @@ public class Car {
     boolean isAutomaticGear;
     Market market;
     String segment;
-    List<Dimensions> dimensions;
+    Dimensions dimensions;
     Country country;
 
-    public Car(Producent producent, boolean isAutomaticGear, Market market, Country country, String segment, List<Dimensions> dimensions) {
+    public Car(Producent producent, boolean isAutomaticGear, Market market, Country country, String segment, Dimensions dimensions) {
         this.producent = producent;
         this.isAutomaticGear = isAutomaticGear;
         this.market = market;
@@ -20,7 +20,7 @@ public class Car {
         this.country = country;
     }
 
-    public List<Dimensions> getDimensions() {
+    public Dimensions getDimensions() {
         return dimensions;
     }
 
@@ -28,6 +28,9 @@ public class Car {
         return producent;
     }
 
+    public Country getCountry() {
+        return country;
+    }
 
     public static void main(String[] args) {
 
@@ -78,37 +81,32 @@ public class Car {
         Producent prod10 = new Producent("BMW", "X1");
 
         List<Car> cars = new ArrayList<>();
-        cars.add(new Car(prod1, false, market4, England, "standard", dimensions));
-        cars.add(new Car(prod2, false, market4, England, "standard", dimensions));
-        cars.add(new Car(prod3, false, market2, France, "medium", dimensions));
-        cars.add(new Car(prod4, false, market4, Japan, "standard", dimensions));
-        cars.add(new Car(prod5, false, market3, USA, "medium", dimensions));
-        cars.add(new Car(prod6, false, market5, USA, "standard", dimensions));
-        cars.add(new Car(prod6, false, market5, USA, "standard", dimensions.));
-        cars.add(new Car(prod2, false, market4, Korea, "standard", dimensions));
-        cars.add(new Car(prod3, false, market4, Korea, "standard", dimensions));
-        cars.add(new Car(prod2, true, market3, France, "standard", dimensions));
-        cars.add(new Car(prod8, true, market4, France, "medium", dimensions));
-        cars.add(new Car(prod7, true, market4, France, "premium", dimensions));
-        cars.add(new Car(prod9, true, market1, England, "premium", dimensions));
-        cars.add(new Car(prod9, true, market4, England, "premium", dimensions));
-        cars.add(new Car(prod10, true, market4, Japan, "premium", dimensions));
+        cars.add(new Car(prod1, false, market4, England, "standard", dimensions.get(1)));
+        cars.add(new Car(prod2, false, market4, England, "standard", dimensions.get(2)));
+        cars.add(new Car(prod3, false, market2, France, "medium", dimensions.get(2)));
+        cars.add(new Car(prod4, false, market4, Japan, "standard", dimensions.get(4)));
+        cars.add(new Car(prod5, false, market3, USA, "medium", dimensions.get(8)));
+        cars.add(new Car(prod6, false, market5, USA, "standard", dimensions.get(7)));
+        cars.add(new Car(prod6, false, market5, USA, "standard", dimensions.get(8)));
+        cars.add(new Car(prod2, false, market4, Korea, "standard", dimensions.get(8)));
+        cars.add(new Car(prod3, false, market4, Korea, "standard", dimensions.get(7)));
+        cars.add(new Car(prod2, true, market3, France, "standard", dimensions.get(3)));
+        cars.add(new Car(prod8, true, market4, France, "medium", dimensions.get(3)));
+        cars.add(new Car(prod7, true, market4, France, "premium", dimensions.get(2)));
+        cars.add(new Car(prod9, true, market1, England, "premium", dimensions.get(1)));
+        cars.add(new Car(prod9, true, market4, England, "premium", dimensions.get(4)));
+        cars.add(new Car(prod10, true, market4, Japan, "premium", dimensions.get(6)));
 
 
         for (Car c : cars) {
             String producentModel = c.getProducent().model;
-            if (producentModel.equals("BMW") && c.isAutomaticGear && c.hasCarCapacityOverValue()) {
-                System.out.println(c.getProducent());
+            if (producentModel.equals("BMW") && c.isAutomaticGear) {
+                int trunkCapacity = c.getDimensions().getTrunkCapacity();
+                if (trunkCapacity > 300) {
+                    System.out.println(c.getCountry().getCountryName() + " - " + c.getCountry().countrySign);
+                }
             }
         }
     }
 
-    public boolean hasCarCapacityOverValue() {
-        for (Dimensions dimension : getDimensions()) {
-            if (dimension.getTrunkCapacity() < 300) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
