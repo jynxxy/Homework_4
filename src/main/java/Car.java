@@ -97,8 +97,10 @@ public class Car {
         cars.add(new Car(prod9, true, market4, England, "premium", dimensions.get(4)));
         cars.add(new Car(prod10, true, market4, Japan, "premium", dimensions.get(6)));
 
+        boolean isListEmptyFlag = true;
 
         for (Car c : cars) {
+            isListEmptyFlag = true;
             String producentModel = c.getProducent().model;
             if (producentModel.equals("BMW")) {
                 if (c.isAutomaticGear) {
@@ -106,8 +108,12 @@ public class Car {
                     if (trunkCapacity > 300) {
                         System.out.println(c.getCountry().getCountryName() + " - " + c.getCountry().countrySign);
                     }
+                    isListEmptyFlag = false;
                 }
             }
+        }
+        if (isListEmptyFlag) {
+            System.out.println("The list is empty");
         }
     }
 }
