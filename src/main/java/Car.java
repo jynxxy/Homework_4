@@ -100,13 +100,14 @@ public class Car {
 
         for (Car c : cars) {
             String producentModel = c.getProducent().model;
-            if (producentModel.equals("BMW") && c.isAutomaticGear) {
-                int trunkCapacity = c.getDimensions().getTrunkCapacity();
-                if (trunkCapacity > 300) {
-                    System.out.println(c.getCountry().getCountryName() + " - " + c.getCountry().countrySign);
+            if (producentModel.equals("BMW")) {
+                if (c.isAutomaticGear) {
+                    int trunkCapacity = c.getDimensions().getTrunkCapacity();
+                    if (trunkCapacity > 300) {
+                        System.out.println(c.getCountry().getCountryName() + " - " + c.getCountry().countrySign);
+                    }
                 }
             }
         }
     }
-
 }
